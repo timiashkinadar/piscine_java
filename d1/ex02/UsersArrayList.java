@@ -1,19 +1,19 @@
 package d1.ex02;
 
-public class UsersArrayList {
+public class UsersArrayList implements UsersList {
     private User [] users;
     private int capacity;
     private int i;
 
     public UsersArrayList(){
-        this.capacity = 0;
+        this.capacity = 10;
         this.i = 0;
         this.users = new User[capacity];
     }
 
     public void add_user(User user){
         int j;
-        if (users != null){
+        if (i < users.length){
             users[i] = user;
             i++;
         }
@@ -30,18 +30,20 @@ public class UsersArrayList {
 
     public User get_id(int id) throws UserNotFoundException {
         for(int n = 0; n < i; n++) {
-            if (users[n].get_id() == id)
+            if (users[n].get_us_id() == id)
                 return users[n];
         }
         throw new UserNotFoundException("User " + id + " not found!");
     }
 
-    public User get_ind(int i)
+    public User get_ind(int i) throws UserNotFoundException
     {
-        return users[i];
+        if (i < this.i)
+            return users[i];
+        throw new UserNotFoundException("User " + i + " not found!");
     }
 
     public int get_us_num(){
-        return i + 1;
+        return i;
     }
 }

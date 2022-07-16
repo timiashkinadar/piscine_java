@@ -12,7 +12,7 @@ public class User {
             this.bal = 0;
         this.id = UserIdsGenerator.getInstance().generateId();
     }
-    public int get_id(){
+    public int get_us_id(){
         return id;
     }
 }
