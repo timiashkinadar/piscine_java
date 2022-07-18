@@ -13,6 +13,7 @@ public class Program {
                 letter[c] = 999;
             }
         }
+        s.close();
         return letter;
     }
     static void print_gr(int[] arr, char[] sym) {

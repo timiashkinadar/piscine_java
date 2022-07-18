@@ -30,5 +30,6 @@ public class Program {
             n = s.nextInt();
         }
         System.out.println("Count of coffee-request - " + cof);
+        s.close();
     }
 }

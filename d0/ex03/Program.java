@@ -31,19 +31,24 @@ public class Program {
             s.nextLine();
         }
         display_stat(all_min, i - 1);
+        s.close();
     }
     private static void display_stat(long all_min, int i)
     {
         int min = 0;
-        int pow = i - 1;
+        long mirror = 0;
+        while (all_min != 0)
+        {
+            mirror = mirror * 10 + (all_min % 10);
+            all_min = all_min / 10;
+        }
         for (int y = 1; y <= i; y++) {
             System.out.print("Week " + y + " ");
-            min = (int)((all_min / Math.pow(10, pow)));
+            min = (int)(mirror % 10);
             for(int j = 0; j < min; j++)
                 System.out.print("=");
             System.out.println(">");
-            all_min =  all_min % (int)Math.pow(10, pow);
-            pow--;
+            mirror /= 10;
         }
     }
 }

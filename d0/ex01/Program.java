@@ -22,6 +22,7 @@ public class Program {
             }
         }
         System.out.println(status + " " + i);
+        s.close();
     }
 }
 
