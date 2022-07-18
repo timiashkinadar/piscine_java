@@ -15,4 +15,7 @@ public class User {
     public int get_us_id(){
         return id;
     }
+    public String get_name() {
+        return name;
+    }
 }

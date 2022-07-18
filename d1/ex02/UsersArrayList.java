@@ -24,6 +24,8 @@ public class UsersArrayList implements UsersList {
                 newUs[j] = users[j];
             }
             newUs[j] = user;
+            j++;
+            i = j;
             this.users = newUs;
         }
     }

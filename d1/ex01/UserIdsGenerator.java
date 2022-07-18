@@ -14,4 +14,5 @@ public class UserIdsGenerator {
     public int generateId() {
         return ++id;
     }
+
 }

@@ -13,7 +13,8 @@ public class Program {
 
         Transaction tr = new Transaction(UUID.randomUUID(), a, s,60);
         TransactionLinkedList t = new TransactionLinkedList();
-        t.add_trans(tr);
         t.add_trans(new Transaction(UUID.randomUUID(), s, k, 80));
+        t.add_trans(new Transaction(UUID.randomUUID(), k, a, - 80));
+        t.print();
     }
 }

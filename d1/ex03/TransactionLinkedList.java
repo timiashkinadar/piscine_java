@@ -1,6 +1,8 @@
 package d1.ex03;
 
-public class TransactionLinkedList {
+import java.util.UUID;
+
+public class TransactionLinkedList implements TransactionsList {
     private Node head;
     private Node tail;
     private int num;
@@ -23,6 +25,50 @@ public class TransactionLinkedList {
             tail = tail.next;
         }
         num++;
+    }
+
+    public void delete_by_id(UUID id){
+        for (Node h = head; h != null; h = h.next) {
+            if(h.get_trans().getId() == id){
+                Node el = new Node(h.transaction, h.next, h.prev);
+                if(el.prev == null)
+                    head = el.next;
+                else {
+                    el.prev.next = el.next;
+                    h.prev = null;
+                }
+
+                if(el.next == null)
+                    tail = el.prev;
+                else{
+                    el.next.prev = el.prev;
+                    h.next = null;
+                }
+                h.transaction = null;
+                num--;
+            }
+            h = h.next;
+        }
+    }
+
+    public Transaction [] list_to_arr() {
+        Transaction [] transactions = new Transaction[num];
+
+        int a = 0;
+        for(Node t = head; t != null; t = t.next)
+        {
+            transactions[a] = t.transaction;
+            a++;
+        }
+        return transactions;
+    }
+    public void print() {
+        Node tmp = head;
+        while (tmp != null) {
+            System.out.println(tmp.transaction.print_tr());
+            tmp = tmp.next;
+            System.out.println();
+        }
     }
 
     class Node {
@@ -50,6 +96,10 @@ public class TransactionLinkedList {
 
         public Node get_next() {
             return this.next;
+        }
+
+        public Transaction get_trans() {
+            return this.transaction;
         }
     }
 }

@@ -3,22 +3,25 @@ package d1.ex02;
 public class Program {
     public static void main(String[] args) throws UserNotFoundException {
         UsersArrayList aa = new UsersArrayList();
-        User ds = new User("sdfjd", 77);
-//        aa.add_user(new User("dfd", 3434));
-//        System.out.print(ds.get_id());
-        aa.add_user(ds);
 
-//        User gh;
-//        try{
-//            gh = aa.get_ind(6);
-//        }catch(UserNotFoundException e){
-//            System.out.print("User is undefined\n");
-//            return;
-//        }
+        aa.add_user(new User("1", 600));
+        aa.add_user(new User("2", 600));
+        aa.add_user(new User("3", 600));
+        aa.add_user(new User("4", 600));
+        aa.add_user(new User("5", 600));
+        aa.add_user(new User("6", 600));
+        aa.add_user(new User("7", 600));
+        aa.add_user(new User("8", 600));
+        aa.add_user(new User("9", 600));
+        aa.add_user(new User("10", 600));
+        aa.add_user(new User("11", 600));
+        aa.add_user(new User("12", 600));
 
-        User gh = aa.get_ind(0);
-        System.out.print(gh.get_us_id());
+        System.out.println("Num of users - " + aa.get_us_num());
 
+
+        System.out.println(aa.get_ind(3).get_name());
+        System.out.println(aa.get_id(5).get_name());
     }
 
 }

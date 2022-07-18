@@ -33,7 +33,20 @@ public class Transaction {
         INCOME,
         OUTCOME
     }
+
+    public String print_tr() {
+        return "Transaction:\n" +
+                "identifier = " + id +
+                "\nrecipient = " + rec.get_name() +
+                "\nsender = " + send.get_name() +
+                "\ncategory = " + cat +
+                "\nsum = " + sum;
+    }
     public long get_sum(){
         return sum;
+    }
+
+    public UUID getId() {
+        return id;
     }
 }
