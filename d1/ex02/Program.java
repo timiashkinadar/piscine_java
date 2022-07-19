@@ -20,8 +20,8 @@ public class Program {
         System.out.println("Num of users - " + aa.get_us_num());
 
 
-        System.out.println(aa.get_ind(3).get_name());
-        System.out.println(aa.get_id(5).get_name());
+        System.out.println(aa.get_ind(1).get_name());
+        System.out.println(aa.get_id(50).get_name());
     }
 
 }

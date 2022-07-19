@@ -4,7 +4,10 @@ public class User {
     private String name;
     private int bal;
     private int id;
+    private TransactionsList t;
     public User(String name, int bal) {
+        this.id = UserIdsGenerator.getInstance().generateId();
+        this.t = new TransactionLinkedList();
         this.name = name;
         if (bal > 0)
             this.bal = bal;
