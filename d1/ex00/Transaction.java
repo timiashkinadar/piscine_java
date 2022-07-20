@@ -14,16 +14,13 @@ public class Transaction {
         this.rec = rec;
         this.send = send;
         this.cat = cat;
-//        if (sum < 0) {
-//            this.sum = sum;
-//            set_cat(Cat.OUTCOME);
-//        } else if (sum > 0) {
-//            this.sum = sum;
-//            set_cat(Cat.INCOME);
-//        }
         set_sum(sum);
-        send.set_balance(send.get_bal() - this.sum);
-        rec.set_balance(rec.get_bal() + this.sum);
+        if (send.get_bal() > sum) {
+            send.set_balance(send.get_bal() - this.sum);
+            rec.set_balance(rec.get_bal() + this.sum);
+        }
+        else
+            this.sum = 0;
     }
     public UUID get_id(){
         return id;
@@ -54,7 +51,6 @@ public class Transaction {
             else
                 this.sum = 0;
         }
-
     }
     public enum Cat{
         INCOME,

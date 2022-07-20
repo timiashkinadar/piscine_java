@@ -20,8 +20,13 @@ public class Transaction {
             this.sum = sum;
             set_cat(Transaction.Cat.INCOME);
         }
-        send.set_balance(send.get_bal() - this.sum);
-        rec.set_balance(rec.get_bal() + this.sum);
+        set_sum(sum);
+        if (send.get_bal() > sum) {
+            send.set_balance(send.get_bal() - this.sum);
+            rec.set_balance(rec.get_bal() + this.sum);
+        }
+        else
+            this.sum = 0;
     }
     public void set_cat(Transaction.Cat cat){
         this.cat = cat;
@@ -33,7 +38,21 @@ public class Transaction {
         INCOME,
         OUTCOME
     }
-
+    public void set_sum(int sum){
+        if(cat == Transaction.Cat.INCOME) {
+            if (sum > 0)
+                this.sum = sum;
+            else
+                this.sum = 0;
+        }
+        else if (cat == Transaction.Cat.OUTCOME)
+        {
+            if (sum < 0)
+                this.sum = sum;
+            else
+                this.sum = 0;
+        }
+    }
     public String print_tr() {
         return "Transaction:\n" +
                 "identifier = " + id +

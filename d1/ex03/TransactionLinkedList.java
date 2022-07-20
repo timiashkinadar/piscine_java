@@ -28,27 +28,27 @@ public class TransactionLinkedList implements TransactionsList {
     }
 
     public void delete_by_id(UUID id){
+        int n_check = num;
         for (Node h = head; h != null; h = h.next) {
             if(h.get_trans().getId() == id){
-                Node el = new Node(h.transaction, h.next, h.prev);
-                if(el.prev == null)
-                    head = el.next;
+                if(h.prev == null){
+                    head = h.next;
+                    head.prev = null;
+                }
+                else if (h.next == null){
+                    tail = h.prev;
+                    tail.next = null;
+                }
                 else {
-                    el.prev.next = el.next;
-                    h.prev = null;
+                    h.prev.next = h.next;
+                    h.next.prev = h.prev;
                 }
-
-                if(el.next == null)
-                    tail = el.prev;
-                else{
-                    el.next.prev = el.prev;
-                    h.next = null;
-                }
-                h.transaction = null;
                 num--;
             }
-            h = h.next;
         }
+        if(n_check != num)
+            return;
+        throw new TransactionNotFoundException("Transaction with UUID : " + id + " doesn't exist!");
     }
 
     public Transaction [] list_to_arr() {
