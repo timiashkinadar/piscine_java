@@ -58,9 +58,6 @@ public class Program {
                     break ;
                 }
             }
-            catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
             catch (IOException e) {
                 e.printStackTrace();
             }
