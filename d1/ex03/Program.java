@@ -11,10 +11,23 @@ public class Program {
         User a = new User("polya", 900);
         User s = new User("olya", 600);
 
-        Transaction tr = new Transaction(UUID.randomUUID(), a, s,60);
-        TransactionLinkedList t = new TransactionLinkedList();
-        t.add_trans(new Transaction(UUID.randomUUID(), s, k, 80));
-        t.add_trans(new Transaction(UUID.randomUUID(), k, a, - 80));
-        t.print();
+        TransactionLinkedList list = new TransactionLinkedList();
+        Transaction t1 = new Transaction(UUID.randomUUID(), s, k, 80);
+        Transaction t2 = new Transaction(UUID.randomUUID(), a, s, 50);
+        Transaction t3 = new Transaction(UUID.randomUUID(), k, a, 70);
+        Transaction t4 = new Transaction(UUID.randomUUID(), s, a, 10);
+
+        list.add_trans(t1);
+        list.add_trans(t2);
+        list.add_trans(t3);
+
+        list.delete_by_id(t3.getId());
+
+        Transaction [] m_t = list.list_to_arr();
+
+        for (Transaction transaction : m_t) {
+            System.out.println(transaction.print_tr() + "\n");
+        }
+//        list.print();
     }
 }
