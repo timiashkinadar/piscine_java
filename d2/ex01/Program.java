@@ -9,8 +9,6 @@ public class Program {
 
         ArrayList<String> f_1 = new ArrayList<>();
         ArrayList<String> f_2 = new ArrayList<>();
-//        ArrayList<String> d;
-        int c = 0;
         Map<String, Integer> map = new HashMap<>();
 
         if(args.length != 2) {
@@ -49,17 +47,36 @@ public class Program {
         try {
             FileOutputStream wr = new FileOutputStream("Dictionary.txt", true);
             for (String s : map.keySet()){
-                c++;
                 wr.write(s.getBytes());
                 wr.write('\n');
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        for (String name: map.keySet()){
-            String key = name.toString();
-            String value = map.get(name).toString();
-            System.out.println(key + " " + value);
+
+        List<Integer> file1_f = new ArrayList<>(map.keySet().size());
+        List<Integer> file2_f = new ArrayList<>(map.keySet().size());
+
+        for (String word : map.keySet()){
+            file1_f.add(Collections.frequency(f_1, word));
+            file2_f.add(Collections.frequency(f_2, word));
         }
-    }
+
+        int n = 0;
+        for (int i = 0; i < map.keySet().size(); i++){
+            n +=(file1_f.get(i) * file2_f.get(i));
+        }
+        double d;
+        int d_1 = 0;
+        int d_2 = 0;
+        for (Integer num : file1_f){
+            d_1 += num * num;
+        }
+        for (Integer num : file2_f){
+            d_2 += num * num;
+        }
+        d = Math.sqrt(d_1) * Math.sqrt(d_2);
+        String res = String.format("%.3f", (n / d));
+        System.out.printf("%.4s\n", res);
+     }
 }
