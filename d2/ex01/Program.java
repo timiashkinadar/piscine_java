@@ -77,6 +77,8 @@ public class Program {
         }
         d = Math.sqrt(d_1) * Math.sqrt(d_2);
         String res = String.format("%.3f", (n / d));
-        System.out.printf("%.4s\n", res);
+        if (n == 0 || d == 0.0)
+            res = "0.0";
+        System.out.printf("Similarity = %.4s\n", res);
      }
 }

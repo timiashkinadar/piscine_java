@@ -55,7 +55,6 @@ public class Program {
                 }
                 if(flag == 0) {
                     System.out.println("UNDEFINED");
-                    break ;
                 }
             }
             catch (IOException e) {
