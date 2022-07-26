@@ -1,16 +1,15 @@
 package edu.school21.chat.models;
 
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 public class Message {
-    private long mes_id;
+    private Long mes_id;
     private User wr;
     private Chatroom room;
     private String mes;
     private Timestamp date;
 
-    public Message(long mes_id, User wr, Chatroom room, String mes, Timestamp date){
+    public Message(Long mes_id, User wr, Chatroom room, String mes, Timestamp date){
         this.mes_id = mes_id;
         this.wr = wr;
         this.room = room;
@@ -37,6 +36,25 @@ public class Message {
                 ", \ntext = " + mes +
                 ", \ndateTime = " + date +  "\n" +
                 "}";
+    }
+    public long getMes_id(){
+        return mes_id;
+    }
+    public User getAuthor(){
+        return wr;
+    }
+    public Chatroom getRoom(){
+        return room;
+    }
+    public String getMes(){
+        return mes;
+    }
+    public Timestamp getDate(){
+        return date;
+    }
+
+    public void setMes_id(long id){
+        this.mes_id = id;
     }
 }
 

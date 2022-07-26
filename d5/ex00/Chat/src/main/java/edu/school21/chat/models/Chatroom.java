@@ -27,10 +27,11 @@ public class Chatroom {
 
     @Override
     public String toString(){
-        return "Chatroom INFO: " +
+        return "Chatroom : {" +
                 "id = " + room_id +
-                ", name = " + room_name +
-                ", creator = " + room_cr +
-                ", messages = " + messages;
+                ", name = " + room_name + '\'' +
+                ", creator = " + room_cr + '\'' +
+                ", messages = " + messages +
+                "}";
     }
 }

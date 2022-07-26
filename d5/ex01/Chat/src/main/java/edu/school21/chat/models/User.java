@@ -9,7 +9,7 @@ public class User {
     private List<Chatroom> cr_rooms;
     private List<Chatroom> users_ch;
 
-    User(int id, String login, String password, List<Chatroom> cr, List<Chatroom> us){
+    public User(int id, String login, String password, List<Chatroom> cr, List<Chatroom> us){
         this.id = id;
         this.login = login;
         this.password = password;
@@ -29,11 +29,12 @@ public class User {
 
     @Override
     public String toString(){
-        return "User INFO: " +
+        return "User : {" +
                 "id = " + id +
-                ", login = " + login +
-                ", password = " + password +
+                ", login='" + login + '\'' +
+                ", password = " + password + '\'' +
                 ", created rooms = " + cr_rooms +
-                ", rooms = " + users_ch;
+                ", rooms = " + users_ch +
+                "}";
     }
 }

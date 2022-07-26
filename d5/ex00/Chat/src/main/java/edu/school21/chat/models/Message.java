@@ -29,11 +29,12 @@ public class Message {
 
     @Override
     public String toString(){
-        return "Message INFO: " +
+        return "Message : {\n" +
                 "id = " + mes_id +
-                ", author = " + wr +
-                ", room = " + room +
-                ", message = " + mes +
-                ", date = " + date;
+                ", \nauthor = " + wr +
+                ", \nroom = " + room +
+                ", \ntext = " + mes +
+                ", \ndateTime = " + date +  "\n" +
+                "}";
     }
 }

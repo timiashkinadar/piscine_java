@@ -34,4 +34,16 @@ public class Chatroom {
                 ", messages = " + messages +
                 "}";
     }
+    public long getRoom_id(){
+        return room_id;
+    }
+    public String getRoom_name(){
+        return room_name;
+    }
+    public User getRoom_cr(){
+        return room_cr;
+    }
+    public List<Message> getMessages(){
+        return messages;
+    }
 }
